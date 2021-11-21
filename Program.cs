@@ -7,9 +7,11 @@ namespace PlatinumOutfitUnlocker {
             if (args.Length > 0) {
                 for (int i = 0; i < args.Length; i++) {
                     if (File.Exists(args[i])) {
-                        File.Copy(args[i], Path.GetDirectoryName(args[i]) + "\\" + Path.GetFileName(args[i]) + ".bak");
-                        using (FileStream TIK = new FileStream(args[i], FileMode.Open, FileAccess.Read)) {
-                            TIK.Position = 0x1B50;
+                        if (File.Exists(args[i] + ".bak"))
+                            File.Delete(args[i] + ".bak");
+                        File.Copy(args[i], args[i] + ".bak");
+                        using (FileStream TIK = new FileStream(args[i], FileMode.Open, FileAccess.ReadWrite)) {
+                            TIK.Position = 0x1B54;
                             TIK.WriteByte(0x01);
                             TIK.Flush();
                             TIK.Close();
