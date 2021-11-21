@@ -8,7 +8,7 @@ namespace PlatinumOutfitUnlocker {
             Console.WriteLine("You can thank theSLAYER on ProjectPokemon.org for finding the right address for this :)");
             if (args.Length > 0) {
                 for (int i = 0; i < args.Length; i++) {
-                    if (File.Exists(args[i])) {
+                    if (File.Exists(args[i]) && args[i].EndsWith(".bin")) {
                         if (File.Exists(args[i] + ".bak"))
                             File.Delete(args[i] + ".bak");
                         File.Copy(args[i], args[i] + ".bak");
