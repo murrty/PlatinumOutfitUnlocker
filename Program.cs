@@ -4,6 +4,8 @@ using System.IO;
 namespace PlatinumOutfitUnlocker {
     class Program {
         static int Main(string[] args) {
+            Console.WriteLine("PlatinumOutfitUnlocker v1.0");
+            Console.WriteLine("You can thank theSLAYER on ProjectPokemon.org for finding the right address for this :)");
             if (args.Length > 0) {
                 for (int i = 0; i < args.Length; i++) {
                     if (File.Exists(args[i])) {
